@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import askAboutNumbers from '../second-game.js';
+import { startSecondGame } from "../games/second-game.js";
 
-console.log(askAboutNumbers());
+console.log(startSecondGame());
