@@ -4,3 +4,4 @@
 
 Аскинема brain-even: https://asciinema.org/a/BEmP8y24LTgzLaQlyT9fDINIX
 Аскинема brain-calc: https://asciinema.org/a/feGtClg6WeBAlHVku90XMpkEc
+Аскинема brain-gcd: https://asciinema.org/a/c4EWAT1anTkaFqo1qMV6hmjeW
