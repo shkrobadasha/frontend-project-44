@@ -3,7 +3,8 @@ import readlineSync from 'readline-sync';
 export const getRandomItem = (item) => Math.floor(Math.random() * (item));
 
 export const getRandomNumber = () => {
-  const number = 101;
+  // const number = 101;
+  const number = 10;
   return getRandomItem(number);
 };
 
