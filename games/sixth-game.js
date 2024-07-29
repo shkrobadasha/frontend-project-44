@@ -1,7 +1,7 @@
 import { getRandomNumber, mainFunctionOfGame } from '../index.js';
 
 const isNumberPrime = (currentNumber) => {
-  if (currentNumber === 0) {
+  if ((currentNumber === 0) || (currentNumber === 1)) {
     return 'no';
   }
   for (let i = 2; i <= Math.sqrt(currentNumber); i += 1) {
