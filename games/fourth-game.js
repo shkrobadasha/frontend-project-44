@@ -32,6 +32,7 @@ const getQuestionArr = () => {
 
 const getAnswerArr = (arrOfQuestions) => {
   const arr = [];
+  /* eslint-disable-next-line */
   for (const item of arrOfQuestions) {
     arr.push(String(resultOfExpression(item)));
   }

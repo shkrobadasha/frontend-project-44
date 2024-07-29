@@ -19,6 +19,7 @@ const getQuestionArr = () => {
 
 const getAnswerArr = (arrOfData) => {
   const answerArr = [];
+  /* eslint-disable-next-line */
   for (const item of arrOfData) {
     answerArr.push(isNumberEven(item));
   }
