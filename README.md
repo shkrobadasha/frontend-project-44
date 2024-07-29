@@ -6,3 +6,4 @@
 Аскинема brain-calc: https://asciinema.org/a/feGtClg6WeBAlHVku90XMpkEc
 Аскинема brain-gcd: https://asciinema.org/a/c4EWAT1anTkaFqo1qMV6hmjeW
 Аскинема brain-progression: https://asciinema.org/a/KR1POnsMzr1zMzMracbvVWMx6
+Аскинема brain-prime: https://asciinema.org/a/AFclE40TLUgL8i8PEp6AzBLKR
