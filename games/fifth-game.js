@@ -45,5 +45,5 @@ const getCleanProgressions = () => {
 
 const questionArr = getQuestionArr(getCleanProgressions());
 
-const startFifthGame = () => mainFunctionOfGame(gameQuestion, questionArr, answerArr);
+const startFifthGame = () => console.log(mainFunctionOfGame(gameQuestion, questionArr, answerArr));
 export default startFifthGame;

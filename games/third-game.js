@@ -48,5 +48,5 @@ const getAnswerArr = (arrOfData) => {
 const questionArr = getQuestionArr();
 const answerArr = getAnswerArr(questionArr);
 
-const startThirdGame = () => mainFunctionOfGame(gameQuestion, questionArr, answerArr);
+const startThirdGame = () => console.log(mainFunctionOfGame(gameQuestion, questionArr, answerArr));
 export default startThirdGame;

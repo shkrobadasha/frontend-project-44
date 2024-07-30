@@ -29,5 +29,5 @@ const getAnswerArr = (arrOfData) => {
 const questionArr = getQuestionArr();
 const answerArr = getAnswerArr(questionArr);
 
-const startSecondGame = () => mainFunctionOfGame(gameQuestion, questionArr, answerArr);
+const startSecondGame = () => console.log(mainFunctionOfGame(gameQuestion, questionArr, answerArr));
 export default startSecondGame;

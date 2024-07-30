@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import askName from '../games/cli.js';
+import startSimpleGame from '../games/cli.js';
 
-console.log(askName());
+startSimpleGame();
