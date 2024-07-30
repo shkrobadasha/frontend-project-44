@@ -6,6 +6,6 @@ const askName = () => {
   return `Hello, ${userName}!`;
 };
 
-const startSimpleGame = () => console.log(askName());
+const startBrainGame = () => console.log(askName());
 
-export default startSimpleGame;
+export default startBrainGame;

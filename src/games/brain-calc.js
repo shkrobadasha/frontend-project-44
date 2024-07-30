@@ -48,5 +48,5 @@ const getAnswerArr = (arrOfData) => {
 const questionArr = getQuestionArr();
 const answerArr = getAnswerArr(questionArr);
 
-const startThirdGame = () => console.log(mainFunctionOfGame(gameQuestion, questionArr, answerArr));
-export default startThirdGame;
+const startBrainCalc = () => console.log(mainFunctionOfGame(gameQuestion, questionArr, answerArr));
+export default startBrainCalc;
