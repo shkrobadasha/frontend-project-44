@@ -4,7 +4,7 @@ export const getRandomItem = (item) => Math.floor(Math.random() * (item));
 
 export const getRandomNumber = () => {
   // const number = 101;
-  const number = 10;
+  const number = 11;
   return getRandomItem(number);
 };
 
