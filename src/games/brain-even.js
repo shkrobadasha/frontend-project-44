@@ -1,4 +1,4 @@
-import { getRandomNumber, mainFunctionOfGame } from '../index.js';
+import { getRandomNumber, startGame } from '../index.js';
 
 function isNumberEven(currentNumber) {
   if (currentNumber % 2 === 0) {
@@ -7,27 +7,24 @@ function isNumberEven(currentNumber) {
   return 'no';
 }
 
-const gameQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
+export const gameQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const getQuestionArr = () => {
-  const arr = [];
-  for (let i = 0; i < 3; i += 1) {
-    arr.push(getRandomNumber());
-  }
-  return arr;
+const getQuestion = () => {
+  return getRandomNumber();
 };
 
-const getAnswerArr = (arrOfData) => {
-  const answerArr = [];
-  /* eslint-disable-next-line */
-  for (const item of arrOfData) {
-    answerArr.push(isNumberEven(item));
-  }
-  return answerArr;
+const getAnswer = (number) => {
+  return isNumberEven(number);
 };
 
-const questionArr = getQuestionArr();
-const answerArr = getAnswerArr(questionArr);
+const gamePare = () => {
+  const result = [];
+  const question = getQuestion();
+  const answer = getAnswer(question);
+  result.push(question);
+  result.push(answer);
+  return result
+}
 
-const startBrainEven = () => console.log(mainFunctionOfGame(gameQuestion, questionArr, answerArr));
+const startBrainEven = () => startGame(gameQuestion, gamePare);
 export default startBrainEven;

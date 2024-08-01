@@ -1,4 +1,4 @@
-import { getRandomNumber, mainFunctionOfGame } from '../index.js';
+import { getRandomNumber, startGame } from '../index.js';
 
 const isNumberPrime = (currentNumber) => {
   if ((currentNumber === 0) || (currentNumber === 1)) {
@@ -14,25 +14,23 @@ const isNumberPrime = (currentNumber) => {
 
 const gameQuestion = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const getQuestionArr = () => {
-  const arr = [];
-  for (let i = 0; i < 3; i += 1) {
-    arr.push(getRandomNumber());
-  }
-  return arr;
+
+const getQuestion = () => {
+  return getRandomNumber();
 };
 
-const getAnswerArr = (arrOfData) => {
-  const answerArr = [];
-  /* eslint-disable-next-line */
-  for (const item of arrOfData) {
-    answerArr.push(isNumberPrime(item));
-  }
-  return answerArr;
+const getAnswer = (expression) => {
+  return isNumberPrime(expression);
 };
 
-const questionArr = getQuestionArr();
-const answerArr = getAnswerArr(questionArr);
+const gamePare = () => {
+  const result = [];
+  const question = getQuestion();
+  const answer = getAnswer(question);
+  result.push(question);
+  result.push(answer);
+  return result
+}
 
-const startBrainPrime = () => console.log(mainFunctionOfGame(gameQuestion, questionArr, answerArr));
+const startBrainPrime = () => startGame(gameQuestion, gamePare);
 export default startBrainPrime;

@@ -1,4 +1,4 @@
-import { getRandomItem, getRandomNumber, mainFunctionOfGame } from '../index.js';
+import { getRandomItem, getRandomNumber, startGame } from '../index.js';
 
 function getRandomSign() {
   const signs = ['+', '-', '*'];
@@ -28,25 +28,22 @@ const getExpression = () => {
 
 const gameQuestion = 'What is the result of the expression?';
 
-const getQuestionArr = () => {
-  const arr = [];
-  for (let i = 0; i < 3; i += 1) {
-    arr.push(getExpression());
-  }
-  return arr;
+const getQuestion = () => {
+  return getExpression();
 };
 
-const getAnswerArr = (arrOfData) => {
-  const arr = [];
-  /* eslint-disable-next-line */
-  for (const item of arrOfData) {
-    arr.push(String(resultOfExpression(item)));
-  }
-  return arr;
+const getAnswer = (expression) => {
+  return String(resultOfExpression(expression));
 };
 
-const questionArr = getQuestionArr();
-const answerArr = getAnswerArr(questionArr);
+const gamePare = () => {
+  const result = [];
+  const question = getQuestion();
+  const answer = getAnswer(question);
+  result.push(question);
+  result.push(answer);
+  return result
+}
 
-const startBrainCalc = () => console.log(mainFunctionOfGame(gameQuestion, questionArr, answerArr));
+const startBrainCalc = () => startGame(gameQuestion, gamePare);
 export default startBrainCalc;

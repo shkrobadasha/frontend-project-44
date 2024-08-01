@@ -1,8 +1,6 @@
-import { getRandomNumber, mainFunctionOfGame } from '../index.js';
+import { getRandomNumber, startGame } from '../index.js';
 
 const gameQuestion = 'What number is missing in the progression?';
-
-const answerArr = [];
 
 const getTotalProgression = () => {
   let firstElement = getRandomNumber();
@@ -14,38 +12,43 @@ const getTotalProgression = () => {
     totalExpression += ' ';
     totalExpression += `${firstElement}`;
   }
-
   return totalExpression;
 };
+
 
 const getExpression = (expression) => {
   const arr = expression.split(' ');
   const randomIndex = Math.floor(Math.random() * arr.length);
-  answerArr.push(arr[randomIndex]);
   arr[randomIndex] = '..';
   return arr.join(' ');
 };
 
-const getQuestionArr = (arrOfAnswer) => {
-  const arr = [];
-  /* eslint-disable-next-line */
-  for (const item of arrOfAnswer) {
-    arr.push(getExpression(item));
-  }
-  return arr;
+const getQuestion = (progression) => {
+  return getExpression(progression);
 };
 
-const getCleanProgressions = () => {
-  const arr = [];
-  for (let i = 0; i < 3; i += 1) {
-    arr.push(getTotalProgression());
+const getAnswer = (currentProgression, question) => {
+  const questionArr = question.split(' ');
+  const progressionArr = currentProgression.split(' ');
+  let index;
+  for (let i = 0; i < questionArr.length; i += 1) {
+    if (questionArr[i] === '..') {
+      index = i;
+    }
   }
-  return arr;
-};
+  return progressionArr[index];
+}
 
-const questionArr = getQuestionArr(getCleanProgressions());
 
-const startBrainProgression = () => console.log(
-  mainFunctionOfGame(gameQuestion, questionArr, answerArr),
-);
-export default startBrainProgression;
+const gamePare = () => {
+  const result = [];
+  const currentProgression = getTotalProgression();
+  const question = getQuestion(currentProgression);
+  const answer = getAnswer(currentProgression, question);
+  result.push(question);
+  result.push(answer);
+  return result
+}
+
+const startBrainProgression = () => startGame(gameQuestion, gamePare);
+export default startBrainProgression; 

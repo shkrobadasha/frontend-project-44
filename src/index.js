@@ -8,17 +8,18 @@ export const getRandomNumber = () => {
   return getRandomItem(number);
 };
 
-export const mainFunctionOfGame = (gameQuestion, questionArr, answerArr) => {
+const mainFunctionOfGame = (gameQuestion, gamePare) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   console.log(`${gameQuestion}`);
   let counter = 0;
   for (let i = 0; i < 3; i += 1) {
-    const currentQuestion = questionArr[i];
+    const currentGamePare = gamePare();
+    const currentQuestion = currentGamePare[0];
     console.log(`Question: ${currentQuestion}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    const correctAnswer = answerArr[i];
+    const correctAnswer = currentGamePare[1];
     if (userAnswer === correctAnswer) {
       counter += 1;
       console.log('Correct!');
@@ -32,3 +33,5 @@ export const mainFunctionOfGame = (gameQuestion, questionArr, answerArr) => {
   }
   return `Let's try again, ${userName}!`;
 };
+
+export const startGame = (gameQuestion, gamePare) => (console.log(mainFunctionOfGame(gameQuestion, gamePare)));

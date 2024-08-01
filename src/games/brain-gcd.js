@@ -1,4 +1,4 @@
-import { getRandomNumber, mainFunctionOfGame } from '../index.js';
+import { getRandomNumber, startGame } from '../index.js';
 
 const gameQuestion = 'Find the greatest common divisor of given numbers.';
 
@@ -22,25 +22,23 @@ const getExpression = () => {
   return `${firstNumber} ${secondNumber}`;
 };
 
-const getQuestionArr = () => {
-  const arr = [];
-  for (let i = 0; i < 3; i += 1) {
-    arr.push(getExpression());
-  }
-  return arr;
+const getQuestion = () => {
+  return getExpression();
 };
 
-const getAnswerArr = (arrOfQuestions) => {
-  const arr = [];
-  /* eslint-disable-next-line */
-  for (const item of arrOfQuestions) {
-    arr.push(String(resultOfExpression(item)));
-  }
-  return arr;
+const getAnswer = (expression) => {
+  return String(resultOfExpression(expression));
 };
 
-const questionArr = getQuestionArr();
-const answerArr = getAnswerArr(questionArr);
+const gamePare = () => {
+  const result = [];
+  const question = getQuestion();
+  const answer = getAnswer(question);
+  result.push(question);
+  result.push(answer);
+  return result
+}
 
-const startBrainGcd = () => console.log(mainFunctionOfGame(gameQuestion, questionArr, answerArr));
+
+const startBrainGcd = () => startGame(gameQuestion, gamePare);
 export default startBrainGcd;
