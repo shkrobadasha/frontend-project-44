@@ -22,13 +22,9 @@ const getExpression = () => {
   return `${firstNumber} ${secondNumber}`;
 };
 
-const getQuestion = () => {
-  return getExpression();
-};
+const getQuestion = () => getExpression();
 
-const getAnswer = (expression) => {
-  return String(resultOfExpression(expression));
-};
+const getAnswer = (expression) => String(resultOfExpression(expression));
 
 const gamePare = () => {
   const result = [];
@@ -36,9 +32,8 @@ const gamePare = () => {
   const answer = getAnswer(question);
   result.push(question);
   result.push(answer);
-  return result
-}
-
+  return result;
+};
 
 const startBrainGcd = () => startGame(gameQuestion, gamePare);
 export default startBrainGcd;

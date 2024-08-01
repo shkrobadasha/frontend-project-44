@@ -15,7 +15,6 @@ const getTotalProgression = () => {
   return totalExpression;
 };
 
-
 const getExpression = (expression) => {
   const arr = expression.split(' ');
   const randomIndex = Math.floor(Math.random() * arr.length);
@@ -23,9 +22,7 @@ const getExpression = (expression) => {
   return arr.join(' ');
 };
 
-const getQuestion = (progression) => {
-  return getExpression(progression);
-};
+const getQuestion = (progression) => getExpression(progression);
 
 const getAnswer = (currentProgression, question) => {
   const questionArr = question.split(' ');
@@ -37,8 +34,7 @@ const getAnswer = (currentProgression, question) => {
     }
   }
   return progressionArr[index];
-}
-
+};
 
 const gamePare = () => {
   const result = [];
@@ -47,8 +43,8 @@ const gamePare = () => {
   const answer = getAnswer(currentProgression, question);
   result.push(question);
   result.push(answer);
-  return result
-}
+  return result;
+};
 
 const startBrainProgression = () => startGame(gameQuestion, gamePare);
-export default startBrainProgression; 
+export default startBrainProgression;

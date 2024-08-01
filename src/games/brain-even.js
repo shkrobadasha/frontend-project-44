@@ -9,13 +9,9 @@ function isNumberEven(currentNumber) {
 
 export const gameQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const getQuestion = () => {
-  return getRandomNumber();
-};
+const getQuestion = () => getRandomNumber();
 
-const getAnswer = (number) => {
-  return isNumberEven(number);
-};
+const getAnswer = (number) => isNumberEven(number);
 
 const gamePare = () => {
   const result = [];
@@ -23,8 +19,8 @@ const gamePare = () => {
   const answer = getAnswer(question);
   result.push(question);
   result.push(answer);
-  return result
-}
+  return result;
+};
 
 const startBrainEven = () => startGame(gameQuestion, gamePare);
 export default startBrainEven;

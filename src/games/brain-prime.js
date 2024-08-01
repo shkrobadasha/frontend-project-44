@@ -14,14 +14,9 @@ const isNumberPrime = (currentNumber) => {
 
 const gameQuestion = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
+const getQuestion = () => getRandomNumber();
 
-const getQuestion = () => {
-  return getRandomNumber();
-};
-
-const getAnswer = (expression) => {
-  return isNumberPrime(expression);
-};
+const getAnswer = (expression) => isNumberPrime(expression);
 
 const gamePare = () => {
   const result = [];
@@ -29,8 +24,8 @@ const gamePare = () => {
   const answer = getAnswer(question);
   result.push(question);
   result.push(answer);
-  return result
-}
+  return result;
+};
 
 const startBrainPrime = () => startGame(gameQuestion, gamePare);
 export default startBrainPrime;

@@ -34,4 +34,6 @@ const mainFunctionOfGame = (gameQuestion, gamePare) => {
   return `Let's try again, ${userName}!`;
 };
 
-export const startGame = (gameQuestion, gamePare) => (console.log(mainFunctionOfGame(gameQuestion, gamePare)));
+export const startGame = (gameQuestion, gamePare) => (console.log(
+  mainFunctionOfGame(gameQuestion, gamePare),
+));
