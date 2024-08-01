@@ -16,9 +16,9 @@ const getAnswer = (number) => isNumberEven(number);
 const gamePare = () => {
   const result = [];
   const question = getQuestion();
-  const answer = getAnswer(question);
+  const anSwer = getAnswer(question);
   result.push(question);
-  result.push(answer);
+  result.push(anSwer);
   return result;
 };
 
