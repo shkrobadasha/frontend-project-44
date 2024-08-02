@@ -2,10 +2,17 @@ import { getRandomNumber, startGame } from '../index.js';
 
 const gameQuestion = 'What number is missing in the progression?';
 
-const getTotalProgression = () => {
-  let firstElement = getRandomNumber();
+const getDataOfExpression = () => {
+  const result = [];
+  const firstElement = getRandomNumber();
   const difference = getRandomNumber();
   const sequenceLength = getRandomNumber() + 5;
+  result.push(firstElement, difference, sequenceLength);
+  return result;
+};
+
+const getTotalProgression = (arrOfData) => {
+  let [firstElement, difference, sequenceLength] = arrOfData;
   let totalExpression = `${firstElement}`;
   for (let i = 0; i < sequenceLength; i += 1) {
     firstElement += difference;
@@ -38,11 +45,10 @@ const getAnswer = (currentProgression, question) => {
 
 const gamePare = () => {
   const result = [];
-  const currentProgression = getTotalProgression();
+  const currentProgression = getTotalProgression(getDataOfExpression());
   const question = getQuestion(currentProgression);
   const answer = getAnswer(currentProgression, question);
-  result.push(question);
-  result.push(answer);
+  result.push(question, answer);
   return result;
 };
 
