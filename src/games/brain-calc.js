@@ -5,43 +5,32 @@ function getRandomSign() {
   return signs[getRandomItem(signs.length)];
 }
 
-const getDataOfExpression = () => {
-  const result = [];
-  const firstNumber = getRandomNumber();
-  const secondNumber = getRandomNumber();
-  const randomSign = getRandomSign();
-  result.push(firstNumber, secondNumber, randomSign);
-  return result;
-};
-
-function resultOfExpression(arrOfData) {
-  const [firstNumber, secondNumber, sign] = arrOfData;
+function resultOfExpression(firstNumber, secondNumber, sign) {
   switch (sign) {
     case '+':
       return firstNumber + secondNumber;
     case '-':
       return firstNumber - secondNumber;
-    default:
+    case '*':
       return firstNumber * secondNumber;
+    default:
+      throw new Error(`Unknown sign: '${sign}'!`);
   }
 }
 
-const getExpression = (arrOfData) => {
-  const [firstNumber, secondNumber, sign] = arrOfData;
-  return `${firstNumber} ${sign} ${secondNumber}`;
-};
+const getExpression = (firstNumber, secondNumber, sign) => `${firstNumber} ${sign} ${secondNumber}`;
 
 const gameQuestion = 'What is the result of the expression?';
 
-const getQuestion = (data) => getExpression(data);
-
-const getAnswer = (data) => String(resultOfExpression(data));
-
+const getQuestion = (fNumber, sNumber, sign) => getExpression(fNumber, sNumber, sign);
+const getAnswer = (fNumber, sNumber, sign) => String(resultOfExpression(fNumber, sNumber, sign));
 const gamePare = () => {
-  const data = getDataOfExpression();
+  const firstNumber = getRandomNumber();
+  const secondNumber = getRandomNumber();
+  const sign = getRandomSign();
   const result = [];
-  const question = getQuestion(data);
-  const answer = getAnswer(data);
+  const question = getQuestion(firstNumber, secondNumber, sign);
+  const answer = getAnswer(firstNumber, secondNumber, sign);
   result.push(question, answer);
   return result;
 };

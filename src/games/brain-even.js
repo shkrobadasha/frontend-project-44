@@ -6,8 +6,6 @@ function isNumberEven(currentNumber) {
 
 export const gameQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const getQuestion = () => getRandomNumber();
-
 const getAnswer = (number) => {
   if (isNumberEven(number)) {
     return 'yes';
@@ -17,7 +15,7 @@ const getAnswer = (number) => {
 
 const gamePare = () => {
   const result = [];
-  const question = getQuestion();
+  const question = getRandomNumber();
   const answer = getAnswer(question);
   result.push(question, answer);
   return result;

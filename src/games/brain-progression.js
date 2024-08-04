@@ -12,12 +12,13 @@ const getDataOfExpression = () => {
 };
 
 const getTotalProgression = (arrOfData) => {
-  let [firstElement, difference, sequenceLength] = arrOfData;
+  const [firstElement, difference, sequenceLength] = arrOfData;
+  let changefirstElement = firstElement;
   let totalExpression = `${firstElement}`;
   for (let i = 0; i < sequenceLength; i += 1) {
-    firstElement += difference;
+    changefirstElement += difference;
     totalExpression += ' ';
-    totalExpression += `${firstElement}`;
+    totalExpression += `${changefirstElement}`;
   }
   return totalExpression;
 };
