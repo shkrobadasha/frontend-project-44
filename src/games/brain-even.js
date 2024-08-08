@@ -1,4 +1,5 @@
-import { getRandomNumber, startGame } from '../index.js';
+import startGame from '../index.js';
+import { getRandomNumber } from '../util.js';
 
 function isNumberEven(currentNumber) {
   return (currentNumber % 2 === 0);
@@ -6,7 +7,7 @@ function isNumberEven(currentNumber) {
 
 export const gameQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const getAnswer = (number) => {
+const createAnswer = (number) => {
   if (isNumberEven(number)) {
     return 'yes';
   }
@@ -16,7 +17,7 @@ const getAnswer = (number) => {
 const gamePare = () => {
   const result = [];
   const question = getRandomNumber();
-  const answer = getAnswer(question);
+  const answer = createAnswer(question);
   result.push(question, answer);
   return result;
 };

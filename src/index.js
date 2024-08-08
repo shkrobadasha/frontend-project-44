@@ -1,12 +1,5 @@
 import readlineSync from 'readline-sync';
 
-export const getRandomItem = (item) => Math.floor(Math.random() * (item));
-
-export const getRandomNumber = () => {
-  const number = 11;
-  return getRandomItem(number);
-};
-
 const numberOfRounds = 3;
 
 const mainFunctionOfGame = (gameQuestion, gamePare) => {
@@ -29,6 +22,8 @@ const mainFunctionOfGame = (gameQuestion, gamePare) => {
   return `Congratulations, ${userName}!`;
 };
 
-export const startGame = (gameQuestion, gamePare) => (console.log(
+const startGame = (gameQuestion, gamePare) => (console.log(
   mainFunctionOfGame(gameQuestion, gamePare),
 ));
+
+export default startGame;

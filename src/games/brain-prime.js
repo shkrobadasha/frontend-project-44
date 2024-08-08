@@ -1,4 +1,5 @@
-import { getRandomNumber, startGame } from '../index.js';
+import startGame from '../index.js';
+import { getRandomNumber } from '../util.js';
 
 const isNumberPrime = (currentNumber) => {
   if ((currentNumber === 0) || (currentNumber === 1)) {
@@ -14,9 +15,9 @@ const isNumberPrime = (currentNumber) => {
 
 const gameQuestion = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const getQuestion = () => getRandomNumber();
+const createQuestion = () => getRandomNumber();
 
-const getAnswer = (expression) => {
+const createAnswer = (expression) => {
   if (isNumberPrime(expression)) {
     return 'yes';
   }
@@ -25,8 +26,8 @@ const getAnswer = (expression) => {
 
 const gamePare = () => {
   const result = [];
-  const question = getQuestion();
-  const answer = getAnswer(question);
+  const question = createQuestion();
+  const answer = createAnswer(question);
   result.push(question, answer);
   return result;
 };

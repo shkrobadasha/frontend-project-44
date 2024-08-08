@@ -1,18 +1,9 @@
-import { getRandomNumber, startGame } from '../index.js';
+import startGame from '../index.js';
+import { getRandomNumber } from '../util.js';
 
 const gameQuestion = 'What number is missing in the progression?';
 
-const getDataOfExpression = () => {
-  const result = [];
-  const firstElement = getRandomNumber();
-  const difference = getRandomNumber();
-  const sequenceLength = getRandomNumber() + 5;
-  result.push(firstElement, difference, sequenceLength);
-  return result;
-};
-
-const getTotalProgression = (arrOfData) => {
-  const [firstElement, difference, sequenceLength] = arrOfData;
+const getTotalProgression = (firstElement, difference, sequenceLength) => {
   let changefirstElement = firstElement;
   let totalExpression = `${firstElement}`;
   for (let i = 0; i < sequenceLength; i += 1) {
@@ -30,9 +21,9 @@ const getExpression = (expression) => {
   return arr.join(' ');
 };
 
-const getQuestion = (progression) => getExpression(progression);
+const createQuestion = (progression) => getExpression(progression);
 
-const getAnswer = (currentProgression, question) => {
+const createAnswer = (currentProgression, question) => {
   const questionArr = question.split(' ');
   const progressionArr = currentProgression.split(' ');
   let index;
@@ -45,10 +36,13 @@ const getAnswer = (currentProgression, question) => {
 };
 
 const gamePare = () => {
+  const firstElement = getRandomNumber();
+  const difference = getRandomNumber();
+  const sequenceLength = getRandomNumber() + 5;
+  const currentProgression = getTotalProgression(firstElement, difference, sequenceLength);
+  const question = createQuestion(currentProgression);
+  const answer = createAnswer(currentProgression, question);
   const result = [];
-  const currentProgression = getTotalProgression(getDataOfExpression());
-  const question = getQuestion(currentProgression);
-  const answer = getAnswer(currentProgression, question);
   result.push(question, answer);
   return result;
 };

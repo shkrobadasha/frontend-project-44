@@ -1,11 +1,12 @@
-import { getRandomItem, getRandomNumber, startGame } from '../index.js';
+import startGame from '../index.js';
+import { getRandomItem, getRandomNumber } from '../util.js';
 
 function getRandomSign() {
   const signs = ['+', '-', '*'];
   return signs[getRandomItem(signs.length)];
 }
 
-function resultOfExpression(firstNumber, secondNumber, sign) {
+function calculateResult(firstNumber, secondNumber, sign) {
   switch (sign) {
     case '+':
       return firstNumber + secondNumber;
@@ -18,19 +19,19 @@ function resultOfExpression(firstNumber, secondNumber, sign) {
   }
 }
 
-const getExpression = (firstNumber, secondNumber, sign) => `${firstNumber} ${sign} ${secondNumber}`;
+const createExpression = (firstNumber, secondNumber, sign) => `${firstNumber} ${sign} ${secondNumber}`;
 
 const gameQuestion = 'What is the result of the expression?';
 
-const getQuestion = (fNumber, sNumber, sign) => getExpression(fNumber, sNumber, sign);
-const getAnswer = (fNumber, sNumber, sign) => String(resultOfExpression(fNumber, sNumber, sign));
+const createQuestion = (fNumber, sNumber, sign) => createExpression(fNumber, sNumber, sign);
+const createAnswer = (fNumber, sNumber, sign) => String(calculateResult(fNumber, sNumber, sign));
 const gamePare = () => {
   const firstNumber = getRandomNumber();
   const secondNumber = getRandomNumber();
   const sign = getRandomSign();
   const result = [];
-  const question = getQuestion(firstNumber, secondNumber, sign);
-  const answer = getAnswer(firstNumber, secondNumber, sign);
+  const question = createQuestion(firstNumber, secondNumber, sign);
+  const answer = createAnswer(firstNumber, secondNumber, sign);
   result.push(question, answer);
   return result;
 };

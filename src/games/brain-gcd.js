@@ -1,41 +1,29 @@
-import { getRandomNumber, startGame } from '../index.js';
+import startGame from '../index.js';
+import { getRandomNumber } from '../util.js';
 
 const gameQuestion = 'Find the greatest common divisor of given numbers.';
 
-const getDataOfExpression = () => {
-  const result = [];
-  const firstNumber = getRandomNumber();
-  const secondNumber = getRandomNumber();
-  result.push(firstNumber, secondNumber);
-  return result;
-};
-
-function resultOfExpression(arrOfData) {
-  let [firstNumber, secondNumber] = arrOfData;
-  while ((firstNumber !== 0) && (secondNumber !== 0)) {
-    if (firstNumber > secondNumber) {
-      firstNumber %= secondNumber;
+function resultOfExpression(firstNumber, secondNumber) {
+  let fNumber = firstNumber;
+  let sNumber = secondNumber;
+  while ((fNumber !== 0) && (sNumber !== 0)) {
+    if (fNumber > sNumber) {
+      fNumber %= sNumber;
     } else {
-      secondNumber %= firstNumber;
+      sNumber %= fNumber;
     }
   }
-  return firstNumber + secondNumber;
+  return fNumber + sNumber;
 }
 
-const getExpression = (arrOfData) => {
-  const [firstNumber, secondNumber] = arrOfData;
-  return `${firstNumber} ${secondNumber}`;
-};
-
-const getQuestion = (data) => getExpression(data);
-
-const getAnswer = (data) => String(resultOfExpression(data));
+const buildExpression = (firstNumber, secondNumber) => `${firstNumber} ${secondNumber}`;
 
 const gamePare = () => {
-  const data = getDataOfExpression();
+  const firstNumber = getRandomNumber();
+  const secondNumber = getRandomNumber();
   const result = [];
-  const question = getQuestion(data);
-  const answer = getAnswer(data);
+  const question = buildExpression(firstNumber, secondNumber);
+  const answer = String(resultOfExpression(firstNumber, secondNumber));
   result.push(question, answer);
   return result;
 };
