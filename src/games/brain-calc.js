@@ -19,19 +19,15 @@ function calculateResult(firstNumber, secondNumber, sign) {
   }
 }
 
-const createExpression = (firstNumber, secondNumber, sign) => `${firstNumber} ${sign} ${secondNumber}`;
-
 const gameQuestion = 'What is the result of the expression?';
 
-const createQuestion = (fNumber, sNumber, sign) => createExpression(fNumber, sNumber, sign);
-const createAnswer = (fNumber, sNumber, sign) => String(calculateResult(fNumber, sNumber, sign));
 const gamePare = () => {
   const firstNumber = getRandomNumber();
   const secondNumber = getRandomNumber();
   const sign = getRandomSign();
   const result = [];
-  const question = createQuestion(firstNumber, secondNumber, sign);
-  const answer = createAnswer(firstNumber, secondNumber, sign);
+  const question = `${firstNumber} ${sign} ${secondNumber}`;
+  const answer = String(calculateResult(firstNumber, secondNumber, sign));
   result.push(question, answer);
   return result;
 };

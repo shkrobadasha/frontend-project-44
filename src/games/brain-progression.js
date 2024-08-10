@@ -5,34 +5,29 @@ const gameQuestion = 'What number is missing in the progression?';
 
 const getTotalProgression = (firstElement, difference, sequenceLength) => {
   let changefirstElement = firstElement;
-  let totalExpression = `${firstElement}`;
+  const result = [];
   for (let i = 0; i < sequenceLength; i += 1) {
     changefirstElement += difference;
-    totalExpression += ' ';
-    totalExpression += `${changefirstElement}`;
+    result.push(changefirstElement);
   }
-  return totalExpression;
+  return result;
 };
 
-const getExpression = (expression) => {
-  const arr = expression.split(' ');
-  const randomIndex = Math.floor(Math.random() * arr.length);
-  arr[randomIndex] = '..';
-  return arr.join(' ');
+const createRandomIndex = (progression) => {
+  const randomIndex = Math.floor(Math.random() * progression.length);
+  return randomIndex;
 };
 
-const createQuestion = (progression) => getExpression(progression);
-
-const createAnswer = (currentProgression, question) => {
-  const questionArr = question.split(' ');
-  const progressionArr = currentProgression.split(' ');
-  let index;
-  for (let i = 0; i < questionArr.length; i += 1) {
-    if (questionArr[i] === '..') {
-      index = i;
+const createQuestion = (currentProgression, randomIndex) => {
+  const result = [];
+  for (let i = 0; i < currentProgression.length; i += 1) {
+    if (i === randomIndex) {
+      result.push('..');
+    } else {
+      result.push(String(currentProgression[i]));
     }
   }
-  return progressionArr[index];
+  return result.join(' ');
 };
 
 const gamePare = () => {
@@ -40,8 +35,9 @@ const gamePare = () => {
   const difference = getRandomNumber();
   const sequenceLength = getRandomNumber() + 5;
   const currentProgression = getTotalProgression(firstElement, difference, sequenceLength);
-  const question = createQuestion(currentProgression);
-  const answer = createAnswer(currentProgression, question);
+  const randomIndex = createRandomIndex(currentProgression);
+  const question = createQuestion(currentProgression, randomIndex);
+  const answer = String(currentProgression[randomIndex]);
   const result = [];
   result.push(question, answer);
   return result;
