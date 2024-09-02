@@ -18,14 +18,6 @@ const createRandomIndex = (progression) => {
   return randomIndex;
 };
 
-const createQuestion = (currentProgression, randomIndex) => {
-  const result = [];
-  // eslint-disable-next-line no-param-reassign
-  currentProgression[randomIndex] = '..';
-  result.push(currentProgression.join(' '));
-  return result;
-};
-
 const gamePare = () => {
   const firstElement = getRandomNumber();
   const difference = getRandomNumber();
@@ -33,9 +25,9 @@ const gamePare = () => {
   const currentProgression = getTotalProgression(firstElement, difference, sequenceLength);
   const randomIndex = createRandomIndex(currentProgression);
   const answer = String(currentProgression[randomIndex]);
-  const question = createQuestion(currentProgression, randomIndex);
+  currentProgression[randomIndex] = '..';
   const result = [];
-  result.push(question, answer);
+  result.push(currentProgression.join(' '), answer);
   return result;
 };
 
